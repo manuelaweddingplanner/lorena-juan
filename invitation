@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Invitación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f5f2;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="welcomeMessage"></h1>
+        <p id="guestInfo"></p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+        const guests = Math.floor(Math.random() * 3) + 1; // Simulación de número de personas permitidas
+        
+        if (name) {
+            document.getElementById("welcomeMessage").innerText = `¡Bienvenido, ${name}!`;
+            document.getElementById("guestInfo").innerHTML = `Tu invitación es para <strong>${guests}</strong> persona(s).`;
+        } else {
+            document.getElementById("welcomeMessage").innerText = "Error";
+            document.getElementById("guestInfo").innerText = "No se encontró el nombre.";
+        }
+    </script>
+</body>
+</html>
