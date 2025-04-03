@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f5f2;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #a17c6b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #8c6a58;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Nos casamos!</h1>
+        <h2>María & Juan</h2>
+        <p>Ingresa tu nombre para continuar</p>
+        <input type="text" id="guestName" placeholder="Tu nombre">
+        <button onclick="redirectToInvitation()">Enviar</button>
+    </div>
+
+    <script>
+        function redirectToInvitation() {
+            const name = document.getElementById("guestName").value.trim();
+            if (name) {
+                window.location.href = `invitation.html?name=${encodeURIComponent(name)}`;
+            } else {
+                alert("Por favor, ingresa tu nombre.");
+            }
+        }
+    </script>
+</body>
+</html>
